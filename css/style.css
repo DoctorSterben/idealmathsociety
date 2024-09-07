@@ -17,12 +17,71 @@
 
     }
 
+
 /* ______________________________________________________________________________________________________________________ */
-/* Hero Section  */
-    .herosection{
+/* Body  */
+
+    .body1{
         height: 600px;
         width: 100%;
         background-color: red;
         display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: start;
+
+    }
+
+/* ______________________________________________________________________________________________________________________ */
+/* Navbar  */
+    .navbar{
+        height: 60px;
+        width: 90%;
+        background-color: purple;
+        display: flex;
         flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 28px;
+    }
+    
+    .logo{
+        height: 100%;
+        width: 15%;
+        background-color: rgb(164, 240, 120);
+    }
+    .links{
+        height: 100%;
+        width: 60%;
+        background-color: rgb(175, 132, 175);
+        border-radius: 9999px;
+    }
+    .button{
+        height: 100%;
+        width: 15%;
+        background-color: #7bffa3;
+    }
+/* ______________________________________________________________________________________________________________________ */
+/* Hero Section  */
+    .herosection{
+        height: 100%;
+        width: 90%;
+        display: flex;
+        flex-direction: row;
+    }
+
+    .hleft{
+        height: 100%;
+        width: 50%;
+    }
+    .herotext{
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+    }
+    .hright{
+        height: 100%;
+        width: 50%;
     }

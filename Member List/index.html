@@ -3,52 +3,98 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ideal Math Society Members</title>
+    <title>Member List</title>
     <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.cdnfonts.com/css/old-london" rel="stylesheet">
 </head>
 <body>
     <div class="container">
-        <h1>Member Tracker</h1>
-        <input type="text" id="searchBar" placeholder="Search by Name, SL No, or WhatsApp No..." onkeyup="searchMember()">
-        <div id="memberList">
-            <div class="member-card" data-name="John Doe" data-sl="101" data-phone="+8801909404384">
-                <p><strong>SL No.:</strong> 101</p>
-                <p><strong>Name:</strong> John Doe</p>
-                <p><strong>Class:</strong> 9 | <strong>Sec:</strong> F | <strong>Roll:</strong> 28</p>
-                <p><strong>WhatsApp No:</strong> +8801 909 404384</p>
-                <p><strong>Email:</strong> mailto@iamrafi.com</p>
-                <p><strong>Form Selling Date:</strong> 08/09/2024</p>
-                <p><strong>Form Type:</strong> New Membership</p>
-            </div>
-            <div class="member-card" data-name="John Doec" data-sl="102" data-phone="+8801409404384">
-                <p><strong>SL No.:</strong> 102</p>
-                <p><strong>Name:</strong> John Doec</p>
-                <p><strong>Class:</strong> 9 | <strong>Sec:</strong> F | <strong>Roll:</strong> 28</p>
-                <p><strong>WhatsApp No:</strong> +8801 409 404384</p>
-                <p><strong>Email:</strong> mailto@iamrafi.com</p>
-                <p><strong>Form Selling Date:</strong> 08/09/2024</p>
-                <p><strong>Form Type:</strong> New Membership</p>
-            </div>
-            <div class="member-card" data-name="John Doek" data-sl="103" data-phone="+8801709404384">
-                <p><strong>SL No.:</strong> 103</p>
-                <p><strong>Name:</strong> John Doek</p>
-                <p><strong>Class:</strong> 9 | <strong>Sec:</strong> F | <strong>Roll:</strong> 28</p>
-                <p><strong>WhatsApp No:</strong> +8801 709 404384</p>
-                <p><strong>Email:</strong> mailto@iamrafi.com</p>
-                <p><strong>Form Selling Date:</strong> 08/09/2024</p>
-                <p><strong>Form Type:</strong> New Membership</p>
-            </div>
-            <div class="member-card" data-name="John Doel" data-sl="104" data-phone="+8801989404384">
-                <p><strong>SL No.:</strong> 104</p>
-                <p><strong>Name:</strong> John Doel</p>
-                <p><strong>Class:</strong> 9 | <strong>Sec:</strong> F | <strong>Roll:</strong> 28</p>
-                <p><strong>WhatsApp No:</strong> +8801 989 404384</p>
-                <p><strong>Email:</strong> mailto@iamrafi.com</p>
-                <p><strong>Form Selling Date:</strong> 08/09/2024</p>
-                <p><strong>Form Type:</strong> New Membership</p>
-            </div>
+        <a href=""><h1>Ideal Math Society</h1></a>
+
+        <!-- Search bar -->
+        <input type="text" id="searchBar" placeholder="  Search by Name, SL No., or WhatsApp Number...">
+
+        <!-- Button group -->
+        <div class="button-group">
+            <button id="allButton">All</button>
+            <button id="newButton">New Membership</button>
+            <button id="renewButton">Renew</button>
         </div>
+
+        <!-- Member Cards -->
+        <div class="member-card" data-type="new" data-name="john doe" data-sl="101" data-whatsapp="+8801909404384">
+            <p><strong>SL No.:</strong> 101</p>
+            <p><strong>Name:</strong> John Doe</p>
+            <p><strong>Class:</strong> 9 <strong> Sec:</strong> F <strong>Roll:</strong> 28</p>
+            <p><strong>WhatsApp No:</strong> +8801 909 404 384</p>
+            <p><strong>Email:</strong> mailto@iamrafi.com</p>
+            <p><strong>Form Selling Date:</strong> 08/09/2024</p>
+            <p><strong>Form Type:</strong> New Membership</p>
+        </div>
+
+        <div class="member-card" data-type="renew" data-name="jane doe" data-sl="102" data-whatsapp="+8801909123456">
+            <p><strong>SL No.:</strong> 102</p>
+            <p><strong>Name:</strong> Jane Doe</p>
+            <p><strong>Class:</strong> 9 <strong>Sec:</strong> G <strong>Roll:</strong> 12</p>
+            <p><strong>WhatsApp No:</strong> +8801 909 123 456</p>
+            <p><strong>Email:</strong> jane@iamrafi.com</p>
+            <p><strong>Form Selling Date:</strong> 08/09/2024</p>
+            <p><strong>Form Type:</strong> Renew</p>
+        </div>
+
     </div>
-    <script src="script.js"></script>
+
+    <script>
+        // Store the member cards and form types
+        const allMemberCards = document.querySelectorAll('.member-card');
+        const searchBar = document.getElementById('searchBar');
+
+        // Add event listeners for the buttons
+        document.getElementById('allButton').addEventListener('click', function() {
+            // Show all members
+            allMemberCards.forEach(card => {
+                card.style.display = 'block';
+            });
+        });
+
+        document.getElementById('newButton').addEventListener('click', function() {
+            // Filter to show only "New Membership" type
+            allMemberCards.forEach(card => {
+                if (card.getAttribute('data-type') === 'new') {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+
+        document.getElementById('renewButton').addEventListener('click', function() {
+            // Filter to show only "Renew" type
+            allMemberCards.forEach(card => {
+                if (card.getAttribute('data-type') === 'renew') {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+
+        // Search functionality
+        searchBar.addEventListener('input', function(e) {
+            const searchTerm = e.target.value.toLowerCase();
+
+            allMemberCards.forEach(card => {
+                const name = card.getAttribute('data-name').toLowerCase();
+                const sl = card.getAttribute('data-sl').toLowerCase();
+                const whatsapp = card.getAttribute('data-whatsapp').toLowerCase();
+
+                if (name.includes(searchTerm) || sl.includes(searchTerm) || whatsapp.includes(searchTerm)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+    </script>
 </body>
 </html>

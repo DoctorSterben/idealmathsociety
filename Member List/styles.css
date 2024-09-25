@@ -1,51 +1,139 @@
-body {
-    background-color: #121212;
-    color: #f1f1f1;
-    font-family: Arial, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
+*{
+    padding: 0;
     margin: 0;
 }
 
-.container {
-    width: 80%;
-    max-width: 900px;
-    padding: 20px;
-}
+@import url('https://fonts.cdnfonts.com/css/old-london');
 
-h1 {
-    text-align: center;
-    margin-bottom: 20px;
-}
 
-#searchBar {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 20px;
-    border-radius: 5px;
-    border: none;
-    background-color: #333;
-    color: #f1f1f1;
-}
 
-.member-card {
-    background-color: #1e1e1e;
-    padding: 15px;
-    margin-bottom: 10px;
-    border-radius: 8px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
-}
+    /* Base Styles */
+    body {
+        color: #f1f1f1;
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        margin: 0;
+        padding: 10px;
+        background-image: linear-gradient(to top, #00c6fb 0%, #005bea 100%);
+    }
 
-.member-card p {
-    margin: 5px 0;
-}
+    .container {
+        width: 100%;
+        max-width: 1200px;
+        padding: 20px;
+        
+    }
 
-.member-card strong {
-    color: #f1f1f1;
-}
+    a{
+        text-decoration: none;
+        color: #f1f1f1;
+    }
+    h1 {
+        text-align: center;
+        margin-bottom: 20px;
+        font-size: 4rem;
+        font-family: 'Old London';
+        font-weight: 400;
+        
+    }
 
-.member-card:not(:last-child) {
-    border-bottom: 1px solid #444;
-}
+    #searchBar {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 20px;
+        border-radius: 9999px;
+        border: none;
+        background-color: #94A3B8;
+        color: #F1F5F9;
+        font-size: 1rem;
+    }
+
+    /* Button Group */
+    .button-group {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-bottom: 20px;
+    }
+
+    .button-group button {
+        background-color: #333;
+        color: #f1f1f1;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 9999px;
+        cursor: pointer;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+        font-size: 1rem;
+    }
+
+    .button-group button:hover {
+        background-color: #555;
+        transform: scale(1.05);
+    }
+
+    .button-group button:active {
+        background-color: #777;
+        transform: scale(0.95);
+    }
+
+    /* Member Cards */
+    .member-card {
+        background-color: #1e1e1e;
+        padding: 15px;
+        margin-bottom: 20px;
+        border-radius: 8px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+        transition: box-shadow 0.3s ease;
+    }
+
+    .member-card:hover {
+        box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.2);
+    }
+
+    .member-card p {
+        margin: 5px 0;
+        font-size: 1rem;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        h1 {
+            font-size: 2.5rem;
+        }
+
+        .button-group button {
+            padding: 8px 16px;
+            font-size: 0.9rem;
+        }
+
+        .member-card p {
+            font-size: 0.9rem;
+        }
+    }
+
+    @media (max-width: 480px) {
+        #searchBar {
+            padding: 8px;
+            font-size: 0.9rem;
+        }
+
+        .button-group {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .button-group button {
+            width: 100%;
+            max-width: 300px;
+            margin-bottom: 10px;
+        }
+
+        .member-card p {
+            font-size: 0.8rem;
+        }
+    }

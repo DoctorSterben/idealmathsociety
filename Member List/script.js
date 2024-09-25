@@ -1,16 +1,32 @@
-function searchMember() {
-    const searchTerm = document.getElementById('searchBar').value.toLowerCase();
-    const members = document.querySelectorAll('.member-card');
+// Store the member cards and form types
+const allMemberCards = document.querySelectorAll('.member-card');
 
-    members.forEach(member => {
-        const name = member.getAttribute('data-name').toLowerCase();
-        const sl = member.getAttribute('data-sl').toLowerCase();
-        const phone = member.getAttribute('data-phone').toLowerCase();
+// Add event listeners for the buttons
+document.getElementById('allButton').addEventListener('click', function() {
+    // Show all members
+    allMemberCards.forEach(card => {
+        card.style.display = 'block';
+    });
+});
 
-        if (name.includes(searchTerm) || sl.includes(searchTerm) || phone.includes(searchTerm)) {
-            member.style.display = '';
+document.getElementById('newButton').addEventListener('click', function() {
+    // Filter to show only "New Membership" type
+    allMemberCards.forEach(card => {
+        if (card.getAttribute('data-type') === 'new') {
+            card.style.display = 'block';
         } else {
-            member.style.display = 'none';
+            card.style.display = 'none';
         }
     });
-}
+});
+
+document.getElementById('renewButton').addEventListener('click', function() {
+    // Filter to show only "Renew" type
+    allMemberCards.forEach(card => {
+        if (card.getAttribute('data-type') === 'renew') {
+            card.style.display = 'block';
+        } else {
+            card.style.display = 'none';
+        }
+    });
+});
